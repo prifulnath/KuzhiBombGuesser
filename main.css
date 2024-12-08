@@ -1,0 +1,87 @@
+body {
+  background-color: black;
+}
+.container {
+  position: relative;
+  height: 100vh;
+}
+.mine-field {
+  width: 600px;
+  height: 600px;
+  background-color: rgb(0, 120, 160);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.mine-field.threebythree {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 5px;
+}
+.single-plot-simple {
+  background-color: rgb(0, 106, 4);
+}
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: rgb(0, 120, 160);
+}
+.hide-item {
+  background-color: rgb(0, 106, 4);
+}
+.hide {
+  display: none !important;
+}
+.level-head {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/** Start game styles */
+.start-game {
+  width: 600px;
+  height: 600px;
+  background-color: rgb(0, 120, 160);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.play-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.play-icon-img {
+  height: 100px;
+  width: 100px;
+}
+
+/** Score card styles */
+.scorecard {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 180px;
+  text-align: center;
+}
+.scorecard h1 {
+  margin: 0;
+  font-size: 24px;
+}
+.scorecard .score {
+  font-size: 48px;
+  margin: 20px 0;
+}
+.scorecard .details {
+  font-size: 18px;
+}

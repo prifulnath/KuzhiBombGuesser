@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+
+<body>
+    <div class="level-head">
+        <div class="scorecard">
+            <h1>Scorecard</h1>
+            <div id="current-score" class="score">0</div>
+            <div class="details">Level: 1</div>
+            <div class="details">Difficulty: Simple</div>
+            <div class="details">High Score: 0</div>
+            <div class="details">Life Remaining: <span id="life-remain">5</span>
+            </div>
+        </div>
+    </div>
+    <div class="continer">
+        <div id="mine-field" class="mine-field threebythree hide">
+        </div>
+        <div id="start-game" class="start-game">
+            <div class="play-icon">
+                <img class="play-icon-img" src="images/icons/play.svg" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="end-game hide">
+
+    </div>
+    <audio id="bomb-sound">
+        <source src="assets/audio/bomb.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="dimond-sound">
+        <source src="assets/audio/dimond.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    </div>
+</body>
+<script src="main.js"></script>
+
+</html>
