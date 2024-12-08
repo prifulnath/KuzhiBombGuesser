@@ -8,12 +8,12 @@
 <body>
     <div class="level-head">
         <div class="scorecard">
-            <h1>Scorecard</h1>
+            <h2>Scorecard</h2>
             <div id="current-score" class="score">0</div>
-            <div class="details">Level: 1</div>
+            <div class="details">Level: <span id="current-level">1</span></div>
             <div class="details">Difficulty: Simple</div>
-            <div class="details">High Score: 0</div>
-            <div class="details">Life Remaining: <span id="life-remain">5</span>
+            <div class="details">High Score: <span id="high-score"></span></div>
+            <div class="details"><span id="life-remain">5</span>
             </div>
         </div>
     </div>
@@ -22,13 +22,13 @@
         </div>
         <div id="start-game" class="start-game">
             <div class="play-icon">
-                <img class="play-icon-img" src="images/icons/play.svg" alt="">
+                <img class="play-icon-img" src="assets/images/icons/play.svg" alt="">
             </div>
         </div>
     </div>
-    <div class="end-game hide">
-
-    </div>
+    <!-- <div class="level-up-screen">
+        <h1 id="level-up-text hide">Level 2</h1>
+    </div> -->
     <audio id="bomb-sound">
         <source src="assets/audio/bomb.mp3" type="audio/mp3">
         Your browser does not support the audio element.
@@ -37,7 +37,10 @@
         <source src="assets/audio/dimond.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
-    </div>
+    <audio id="level-up-sound">
+        <source src="assets/audio/level-up.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
 </body>
 <script src="main.js"></script>
 

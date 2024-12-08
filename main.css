@@ -70,18 +70,33 @@ body {
   color: #fff;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(95, 62, 62, 0.1);
   width: 180px;
   text-align: center;
 }
-.scorecard h1 {
+.scorecard h2 {
   margin: 0;
   font-size: 24px;
 }
 .scorecard .score {
-  font-size: 48px;
+  font-size: 40px;
   margin: 20px 0;
 }
 .scorecard .details {
   font-size: 18px;
+  margin-top: 5px;
+}
+
+.heart {
+  height: 20px;
+  width: 20px;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.level-up-screen {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
