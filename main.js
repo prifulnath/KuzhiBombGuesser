@@ -8,6 +8,7 @@ var g, game = {
     level: document.getElementById('current-level'),
     life: document.getElementById('life-remain'),
     levelUpText: document.getElementById('level-up-text'),
+    levelUpScreen: document.getElementById("level-up-screen"),
     bombSound: document.getElementById('bomb-sound'),
     dimondSound: document.getElementById('dimond-sound'),
     levelUpSound: document.getElementById('level-up-sound'),
@@ -23,12 +24,18 @@ var g, game = {
     currentLevel: 0,
     numberOfMines: 1,
     lifeRemain: 5,
+    noGrid: 9,
     highScore: localStorage.getItem('KUZHIBOMB_GUESSER_HIGHSCORE') || 0,
+    levelGrid: {
+      1: "threebythree",
+      5: "sixbysix",
+    }
   },
 
   init: function () {
     self = this.settings;
     prop = this.properties;
+    this.updateLife();
     this.initAction();
   },
 
@@ -46,6 +53,7 @@ var g, game = {
       self.startGame.classList.add("hide");
       self.mineField.classList.remove("hide");
       prop.currentScore = 0;
+      prop.currentLevel = 1;
       prop.lifeRemain = 5;
       that.generateGridItem();
       that.updateLife();
@@ -56,8 +64,8 @@ var g, game = {
 
   generateGridItem: function () {
     let inner = '';
-    let random = this.getRandomNumber(1, 9);
-    for (let index = 1; index <= 9; index++) {
+    let random = this.getRandomNumber(1, prop.noGrid);
+    for (let index = 1; index <= prop.noGrid; index++) {
       inner += (random == index) ? this.generateGridBomb() : this.generateGridDimond();
     }
     self.mineField.innerHTML = inner;
@@ -107,7 +115,9 @@ var g, game = {
         self.bombSound.play();
         prop.lifeRemain -= 1;
         this.updateLife();
-        setTimeout(this.resetCurrentLevel(), 100000);
+        setTimeout(() => {
+          this.resetCurrentLevel()
+        }, 500);
       } else if (img.classList.contains("dimond")) {
         self.dimondSound.play();
         prop.currentScore += prop.scoreStep;
@@ -132,9 +142,25 @@ var g, game = {
 
   gameLevelUpgrade: function () {
     prop.currentLevel++;
+    prop.currentScore += (prop.currentLevel * 5);
     self.levelUpSound.play();
+    self.levelUpText.innerHTML = "Level " + prop.currentLevel;
+    self.levelUpScreen.classList.remove("hide");
+    this.gridLevelSwitch();
+    setTimeout(() => {
+      self.levelUpScreen.classList.add("hide");
+    }, 800);
+    this.updateScore();
     this.updateLevel();
     this.generateGridItem();
+  },
+
+  gridLevelSwitch: function () {
+    if (6 == prop.currentLevel) {
+      prop.noGrid = 36;
+      self.mineField.classList.remove("threebythree");
+      self.mineField.classList.add("sixbysix");
+    }
   },
 
   resetCurrentLevel: function () {

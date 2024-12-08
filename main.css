@@ -20,6 +20,12 @@ body {
   grid-template-rows: repeat(3, 1fr);
   gap: 5px;
 }
+.mine-field.sixbysix {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 5px;
+}
 .single-plot-simple {
   background-color: rgb(0, 106, 4);
 }
@@ -95,8 +101,17 @@ body {
 }
 
 .level-up-screen {
+  width: 600px;
+  height: 600px;
+  background-color: rgb(0, 106, 4);
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.level-up-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
